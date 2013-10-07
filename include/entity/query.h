@@ -1,7 +1,7 @@
 #pragma once
 
 #include <list>
-
+#include <numeric>
 
 namespace ent
 {

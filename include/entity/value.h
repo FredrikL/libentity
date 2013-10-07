@@ -5,7 +5,7 @@
 #include <iostream>
 #include <algorithm>
 #include <initializer_list>
-
+#include <cmath>
 #include <entity/utilities.h>
 
 

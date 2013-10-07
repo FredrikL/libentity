@@ -4,7 +4,7 @@ solution "entity"
 	flags 			"Symbols"
 	configurations	"default"
 	platforms		"native"
-	buildoptions	{ "-Wall", "-Wno-sign-compare", "-std=c++11", "-O3", "-fPIC", "-D_FORTIFY_SOURCE=2" }
+	buildoptions	{ "-Wall", "-Wno-sign-compare", "-std=c++11", "-stdlib=libc++" , "-O3", "-fPIC", "-D_FORTIFY_SOURCE=2" }
 	includedirs		{ "include" }
 	libdirs 		{ "lib" }
 	excludes		{ "**.bak", "**~" }
@@ -12,14 +12,15 @@ solution "entity"
 	project "libentity"
 		kind 			"SharedLib"
 		targetname		"entity"
-		linkoptions		"-Wl,-soname,libentity.so.0"
+		linkoptions		"-Wl -stdlib=libc++"
 		includedirs		{ "include/entity" }
 		files 			{ "include/entity/**.h", "src/entity/**.cpp" }
-		postbuildcommands	{ "./strip lib/libentity.so" }
+		postbuildcommands	{ "./strip lib/libentity.dylib" }
 
 	project "libtest"
 		kind				"SharedLib"
 		targetname			"test"
+		linkoptions			"-stdlib=libc++"
 		defines				{ "__stdcall=" }
 		links				{ "libentity", "xUnit++" }
 		files				{ "src/test/**.cpp" }
