@@ -5,7 +5,9 @@
 #include <iostream>
 #include <algorithm>
 #include <initializer_list>
-#include <cmath>
+#ifdef __APPLE__
+	#include <cmath>
+#endif
 #include <entity/utilities.h>
 
 

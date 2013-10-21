@@ -1,5 +1,9 @@
 #include "entity/bson.h"
-#include "endian.h"
+#ifdef __APPLE__
+	#include "endian.h"
+#else
+	#include <endian>
+#endif
 
 using namespace std;
 

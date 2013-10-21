@@ -1,7 +1,9 @@
 #pragma once
 
 #include <list>
-#include <numeric>
+#ifdef __APPLE__
+	#include <numeric>
+#endif
 
 namespace ent
 {
